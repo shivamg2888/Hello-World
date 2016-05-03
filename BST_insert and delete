@@ -1,0 +1,74 @@
+// WAP to implement BST and its deletion
+#include <stdio.h>
+#include <conio.h>
+#include <malloc.h>             //call to undefined function malloc
+struct node
+{
+	int num;
+   struct node *lchild;
+   struct node *rchild;
+};
+typedef struct node node;
+//void delete(node*);
+void traverse(node*);
+
+void main()
+{
+	char ch;
+	node *root=NULL,*p,*prev,*temp=NULL;
+   do
+   {
+   	temp=(node*)malloc(sizeof(node));
+      printf("\nEnter the value of the node ");
+      scanf("%d",&temp->num);
+      temp->lchild=NULL;
+      temp->rchild=NULL;
+      if(root==NULL)
+      {
+      	root=p=temp;
+      }
+     else
+     {
+     	p=root;
+      while(p!=NULL)
+      {
+      	if(p->num>temp->num)
+      	{
+      		prev=p;
+      		p=p->lchild;
+      	}
+      	else if(p->num<temp->num)
+      	{
+      		prev=p;
+      		p=p->rchild;
+      	}
+      }
+
+      if(prev->num>temp->num)
+      {
+      	prev->lchild=temp;
+      }
+      else
+      {
+      	prev->rchild=temp;
+      }
+     }
+      fflush(stdin);
+      printf("\nDo you want more nodes(y/n) ");
+      scanf("%c",&ch);
+   }
+   while(ch=='y');
+   printf("\ntraverse . . . .");
+   traverse(root);
+getch();
+}
+                                 //-----infinite loop--------
+void traverse(node *r)
+{
+	if(r!=NULL)
+   {
+		printf(" %d ",r->num);
+   	traverse(r->lchild);
+   	traverse(r->rchild);
+  }
+}
