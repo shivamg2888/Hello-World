@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<conio.h>
+
+// Cheak the two strings are anagram to each other
+int isAnagram(char a[],char b[])
+{
+	int c=0;
+   char first[26]={0}, sec[26]={0};
+   while(a[c]!='\0')
+   {
+   	first[a[c]-'a']++;
+      c++;
+   }
+   c=0;
+   while(b[c]!='\0')
+   {
+   	sec[b[c]-'a']++;
+      c++;
+   }
+
+   for(c=0;c<26;c++)
+   {
+   	if(first[c]!=sec[c])
+      {
+      	return 0;
+      }
+   }
+   return 1;
+}
+
+void main()
+{
+	int r;
+   char a[10],b[10];
+   puts("Enter two strings: ");
+   gets(a);
+   gets(b);
+   r=isAnagram(a,b);
+   if(r)
+   {
+   	printf("Both Strings are anagram");
+   }
+   else
+   {
+   	printf("strings are not anagram");
+   }
+	getch();
+}
