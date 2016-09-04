@@ -1,0 +1,27 @@
+// Java Enums can be thought of as classes that have fixed set of constants.
+// enum can be traversed
+// enum can have fields, constructors and methods
+// enum may implement many interfaces but cannot extend any class because it internally extends Enum class
+
+public class EnumTest {
+
+    enum Seasion { 
+    	MONDAY(5),TUESDAY(6),SUNDAY(7),WED(9);
+    	
+    	public int val;
+    	Seasion(int val)
+    	{
+    		this.val=val;
+    	}
+    }
+    
+    public static void main(String p[])
+    {
+    	EnumTest et=new EnumTest();
+    	//Seasion s=Seasion.WED;
+    	for(Seasion s : Seasion.values())
+    	System.out.println(s+" "+s.val);
+    }
+    
+    
+}
