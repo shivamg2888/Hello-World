@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main()
+{
+   int k,n,i,j,b=0;
+   //printf("Enter the no.of minut passed\n");
+   scanf("%d",&k);
+   scanf("%d",&n);
+   int a[n];
+   //printf("Enter the no. of cars passed per minut\n");
+   for(i=0;i<n;i++)
+   {
+   		scanf("%d",&a[i]);
+   }
+   i=0;
+   while(a[i]!='\0')
+   {
+   		if(a[i]!=0)
+   		{
+   			//j=i;
+   			//while(a[j]!='\0')
+   			for(j=i;j<n;j++)
+   			{
+   				b=b+a[j];
+   				if(b<k)
+   				{
+   					b=0;
+   				}
+   				else
+   				{
+   					b=b-k;
+   				}
+   				//j++;
+   			}
+   			printf("%d",b);
+   			break;
+   		}
+   		i++;
+   }
+    return 0;
+}
