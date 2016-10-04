@@ -1,0 +1,20 @@
+/*   Concatenate strings using a specific separator.
+
+Example
+
+For arguments = ["Code", "Fight", "On", "!"] and separator = "/", the output should be
+myConcat(arguments, separator) = "Code/Fight/On/!/".
+
+*/
+
+String myConcat(String[] arguments, String separator) {
+    StringBuilder s = new StringBuilder();
+    int i;
+    for(i=0;i<arguments.length;i++)
+    {
+       s.append(arguments[i]+separator);
+        
+    }
+    String str = s.toString();
+    return str;
+}
